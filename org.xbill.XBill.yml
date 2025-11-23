@@ -1,0 +1,66 @@
+app-id: org.xbill.XBill
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
+sdk: org.freedesktop.Sdk
+command: xbill
+
+finish-args:
+  - --share=ipc
+  - --socket=x11
+
+modules:
+  - name: libXmu
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://xorg.freedesktop.org/archive/individual/lib/libXmu-1.2.1.tar.xz
+        sha256: fcb27793248a39e5fcc5b9c4aec40cc0734b3ca76aac3d7d1c264e7f7e14e8b2
+
+  - name: libXaw
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://xorg.freedesktop.org/archive/individual/lib/libXaw-1.0.16.tar.xz
+        sha256: 731d572b54c708f81e197a6afa8016918e2e06dfd3025e066ca642a5b8c39c8f
+
+  - name: xbill
+    buildsystem: autotools
+    config-opts:
+      - --disable-motif
+      - --enable-athena
+      - --disable-gtk
+      - --mandir=/app/share/man
+    sources:
+      - type: archive
+        url: http://www.xbill.org/download/xbill-2.1.tar.gz
+        sha256: 0efdfff1ce2df70b7a15601cb488cd7b2eb918d21d78e877bd773f112945608d
+        strip-components: 1
+
+      - type: patch
+        path: configure.diff
+
+      - type: patch
+        path: 02_hurd_logos.diff
+
+      - type: patch
+        path: 03_fix_ftbfs.diff
+
+      - type: patch
+        path: 04_implicit_declaration.diff
+
+      - type: file
+        path: xbill.desktop
+
+      - type: file
+        path: org.xbill.XBill.png
+
+      - type: file
+        path: org.xbill.XBill.metainfo.xml
+
+    post-install:
+      - install -Dm644 xbill.desktop /app/share/applications/org.xbill.XBill.desktop
+      - install -Dm644 org.xbill.XBill.png /app/share/icons/hicolor/256x256/apps/org.xbill.XBill.png
+      - install -Dm644 org.xbill.XBill.metainfo.xml /app/share/metainfo/org.xbill.XBill.metainfo.xml
+
+    cleanup:
+      - /share/man

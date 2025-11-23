@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=XBill
+Comment=Get rid of those Wingdows Viruses!
+Icon=org.xbill.XBill
+Exec=xbill
+Terminal=false
+Categories=Game;ArcadeGame;
+Keywords=Game;Bill;Viruses

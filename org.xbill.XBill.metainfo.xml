@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.xbill.XBill</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-1.0-only</project_license>
+  
+  <name>XBill</name>
+  <summary>Get rid of those Wingdows Viruses!</summary>
+  <icon type="stock">org.xbill.XBill</icon>
+  
+  <developer id="org.xbill">
+    <name>Psychosoft</name>
+  </developer>
+  
+  <description>
+    <p>
+      Ever get the feeling that nothing is going right? You're a sysadmin, 
+      and someone's trying to destroy your computers. The little people 
+      running around the screen are trying to infect your computers with 
+      Wingdows [TM], a virus cleverly designed to resemble a popular 
+      operating system.
+    </p>
+    <p>
+      Your objective is to click the mouse on them, ending their potential 
+      threat. If one of the people reaches a computer, it will attempt to 
+      replace your operating system with the virus it carries. It will then 
+      attempt to run off the screen with your vital software.
+    </p>
+  </description>
+  
+  <launchable type="desktop-id">org.xbill.XBill.desktop</launchable>
+  
+  <categories>
+    <category>Game</category>
+    <category>ArcadeGame</category>
+  </categories>
+  
+  <keywords>
+    <keyword>game</keyword>
+    <keyword>arcade</keyword>
+    <keyword>retro</keyword>
+    <keyword>linux</keyword>
+  </keywords>
+  
+  <url type="homepage">http://www.xbill.org/</url>
+  
+  <provides>
+    <binary>xbill</binary>
+  </provides>
+  
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-bloodshed">mild</content_attribute>
+    <content_attribute id="language-humor">mild</content_attribute>
+  </content_rating>
+  
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+  </recommends>
+  <requires>
+    <display_length compare="ge">402</display_length>
+  </requires>
+  
+  <branding>
+    <color type="primary" scheme_preference="light">#40b0e8</color>
+    <color type="primary" scheme_preference="dark">#0070b0</color>
+  </branding>
+  
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/breakgimme/flathub/refs/heads/xbill/screenshot1.png</image>
+      <caption>Main menu</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/breakgimme/flathub/refs/heads/xbill/screenshot2.png</image>
+      <caption>Gameplay</caption>
+    </screenshot>
+  </screenshots>
+  
+  <releases>
+    <release version="2.1" date="2001-11-15">
+      <description>
+        <ul>
+          <li>Converted all code from C++ into C.</li>
+          <li>Cleaned up pretty much all of the code.</li>
+          <li>Modified build system to use GNU autoconf instead of imake.</li>
+          <li>Made the UI system modular, and created modules for the Athena and Motif widget sets. By default, both are built into the binary.</li>
+          <li>Added a GTK front end.</li>
+          <li>Added an option to use a larger playing field.</li>
+          <li>Changed the Athena front end to use Xaw3d when possible.</li>
+          <li>Added Palm OS/CPU (images borrowed from pBill and heavily modified).</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="2.0" date="1997-01-23">
+      <description>
+        <ul>
+          <li>Changed around some timer code.</li>
+          <li>Removed Athena DrawingArea widget since CoreWidget works too.</li>
+          <li>Massive code reorganization to improve portability to other GUIs, languages, etc.</li>
+          <li>Some computers are connected by network cables.</li>
+          <li>When a computer with a network cable becomes infected, it will release a spark down the cable which will infect the computer on the other end. Pouring the bucket of water on the spark will extinguish it.</li>
+          <li>Made cursors and various other images look better.</li>
+          <li>Removed references to defenestration.dorm.umd.edu, which no longer exists.</li>
+          <li>Added Red Hat logo (fixed broken Red Hat patch).</li>
+          <li>Added GNU Hurd logo.</li>
+          <li>Added Linux penguin logo.</li>
+          <li>The BSD, Red Hat, Linux, OS/2, and Hurd operating systems are interchangeable on the 2 PC computers.</li>
+          <li>The score is now displayed in the playing field.</li>
+          <li>Made Athena version far better looking.</li>
+          <li>Motif version almost completely works with Lesstif.</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="1.1a" date="1995-09-22">
+      <description>
+        <ul>
+          <li>Fixed bug where getopt() returned a char instead of an int.</li>
+          <li>Fixed bug where hitting Enter when entering a high score corrupted the high score file.</li>
+          <li>Don't fclose() nonexistent files any more.</li>
+          <li>Added BSD as another operating system (patches by Joerg Wunsch, joerg_wunsch@uriah.heep.sax.de).</li>
+          <li>It was really easy to play forever by guarding one computer. Now you lose when there's only one computer left running its normal OS.</li>
+          <li>Added man page, written by Pekka Marjola (marjola@trshp.ntc.nokia.com).</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="1.1" date="1995-04-16">
+      <description>
+        <ul>
+          <li>Modularized widget code, and added Athena widget support (rewritten from scratch). The game looks better with Motif, but that's not too important.</li>
+          <li>Made pause button only active during game play.</li>
+          <li>Warping to a level starts a game if one isn't being played.</li>
+          <li>Fixed a potentially nasty bug that could cause Bills to get lost.</li>
+          <li>Works in TrueColor now (I think - it works in 16 bit mode at least).</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="1.0" date="1995-04-09">
+      <description>
+        <ul>
+          <li>Remembered that the game's not done yet :)</li>
+          <li>Replaced usleep() calls with XtAppAddTimeout(). Should make the game more responsive.</li>
+          <li>Changed all popup windows to modal dialogs. Cleans up code a lot.</li>
+          <li>Removed Athena support, since it would take too long to finish.</li>
+          <li>Made a couple pixmaps a bit smaller.</li>
+          <li>Changed colors to gray. Why not?</li>
+          <li>Finally got everything to work with full colormaps.</li>
+          <li>Got rid of app-defaults file. Not really used anyway.</li>
+          <li>Only uses one button now (any button). Easier to play.</li>
+          <li>Some Imakefile fixes.</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+</component>
+
